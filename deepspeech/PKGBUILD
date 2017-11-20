@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://github.com/mozilla/DeepSpeech"
 license=('MPL2')
 depends=()
-source=($pkgname-$pkgver.tar.gz)
+source=(https://github.com/stes/arch-deepspeech/releases/download/{$pkgver}-alpha.1/$pkgname-$pkgver.tar.gz)
 noextract=()
 md5sums=('af9e800c29482434559abfb1c4bfd7c9')
 

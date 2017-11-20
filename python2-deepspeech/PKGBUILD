@@ -9,7 +9,7 @@ depends=('python2' 'python2-numpy' 'python2-scipy' 'deepspeech')
 makedepends=('python2-pip')
 license=('MPL2')
 arch=('x86_64')
-source=($pkgname-$pkgver.tar.gz)
+source=(https://github.com/stes/arch-deepspeech/releases/download/{$pkgver}-alpha.1/$pkgname-$pkgver.tar.gz)
 md5sums=('857c0f5c133e5b0861521269c175ee37')
 
 package() {

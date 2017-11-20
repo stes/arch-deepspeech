@@ -1,5 +1,7 @@
 src/
 pkg/
+builds/
+
 *.pkg.tar.xz
 *.tar.gz
 
