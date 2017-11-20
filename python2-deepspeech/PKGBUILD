@@ -1,0 +1,21 @@
+# This is an unofficial build of the python bindings for the Deep Speech project
+# Maintainer: Steffen Schneider <steffen.schneider@tum.de>
+pkgname=python2-deepspeech
+pkgver=0.0.2
+pkgrel=1
+pkgdesc='Python bindings for Project DeepSpeech. Project DeepSpeech is an open source Speech-To-Text engine.'
+url='https://github.com/mozilla/DeepSpeech'
+depends=('python2' 'python2-numpy' 'python2-scipy' 'deepspeech')
+makedepends=('python2-pip')
+license=('MPL2')
+arch=('x86_64')
+source=($pkgname-$pkgver.tar.gz)
+md5sums=('857c0f5c133e5b0861521269c175ee37')
+
+package() {
+  PIP_CONFIG_FILE=/dev/null pip2 install --root="$pkgdir" --ignore-installed --no-deps ${srcdir}/deepspeech-${pkgver}-cp27-cp27mu-linux_x86_64.whl
+  # remove the deepspeech binary, this is already included in the parent package
+  rm $pkgdir/usr/bin/deepspeech
+}
+
+# vim:set ts=2 sw=2 et:

@@ -1,0 +1,30 @@
+# This is an unofficial build of the Deep Speech project binaries
+# Maintainer: Steffen Schneider <steffen.schneider@tum.de>
+pkgname=deepspeech
+pkgver=0.0.2
+pkgrel=1
+pkgdesc="https://github.com/mozilla/DeepSpeech"
+arch=('x86_64')
+url="https://github.com/mozilla/DeepSpeech"
+license=('MPL2')
+depends=()
+source=($pkgname-$pkgver.tar.gz)
+noextract=()
+md5sums=('af9e800c29482434559abfb1c4bfd7c9')
+
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  
+  install -m755 -d "$pkgdir/usr"
+
+	install -d ${pkgdir}/usr/lib
+	install -m 0644 usr/lib/libtensorflow_cc.so ${pkgdir}/usr/lib/
+	install -m 0644 usr/lib/libdeepspeech.so ${pkgdir}/usr/lib/
+	install -m 0644 usr/lib/libdeepspeech_utils.so ${pkgdir}/usr/lib/
+	install -d ${pkgdir}/usr/bin
+	install -m 0755 usr/bin/deepspeech ${pkgdir}/usr/bin
+  
+}
+
+# vim:set ts=2 sw=2 et:
